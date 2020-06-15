@@ -3,40 +3,29 @@ const canvas = document.getElementById('grid');
 const ctx = canvas.getContext('2d');
 let activeShape = null;
 const gridSize = 50;
-
+document.addEventListener('keydown', e => {
+  switch (e.key) {
+    // case 'ArrowDown':
+    //     moveShape()
+    //   console.log('down');
+    //   break;
+    // case 'ArrowUp':
+    //   console.log('up');
+    //   break;
+    case 'ArrowRight':
+      moveShape(0, 1);
+      console.log('right');
+      break;
+    case 'ArrowLeft':
+      moveShape(0, -1);
+      console.log('left');
+      break;
+    default:
+      break;
+  }
+});
 const grid = [];
-const emptyLine = [
-  false,
-  false,
-  false,
-  false,
-  false,
-  false,
-  false,
-  false,
-  false,
-  false,
-  false,
-  false,
-];
-<<<<<<< HEAD
-class Shape {}
-=======
-class Shape {
-    constructor(x = gridSize * 4, y = 0, shape) {
-       this.x = x;
-       this.y = y;
-       this.shape = shape;
-       ctx.fillStyle = 'green';
-       if (shape === 'line') {
-         ctx.fillRect(this.x, this.y, gridSize, gridSize);
-         ctx.fillRect(this.x + gridSize * 1, this.y, gridSize, gridSize);
-         ctx.fillRect(this.x + gridSize * 2, this.y, gridSize, gridSize);
-         ctx.fillRect(this.x + gridSize * 3, this.y, gridSize, gridSize);
-       }
-     }
-}
->>>>>>> b462170507bd3cf7cc05acb510e0d7bd31da396d
+
 class Board {
   constructor() {
     for (let x = 0; x <= canvas.height; x += 50) {
@@ -91,10 +80,10 @@ const generateShape = shape => {
 const getNewShape = () => {
   generateShape({
     coords: [
-      [1, 4],
-      [1, 5],
-      [1, 6],
-      [1, 7],
+      [0, 4],
+      [0, 5],
+      [0, 6],
+      [0, 7],
     ],
   });
 };
@@ -107,6 +96,15 @@ const renderShapes = () => {
       }
     }
   }
+};
+const moveShape = (y, x) => {
+  console.log(activeShape);
+  activeShape.coords.forEach(coord => {
+    if (coord[1] + x >= 0 && coord[1] + x < canvas.width) {
+      coord[0] += y;
+      coord[1] += x;
+    }
+  });
 };
 const fall = shape => {
   shape.coords.forEach(coord => {
@@ -137,6 +135,7 @@ const gameLoop = () => {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
   ctx.beginPath();
   generateShape(activeShape);
+  console.log(grid);
   renderShapes();
   shapeFall();
   drawBoard();
@@ -144,10 +143,10 @@ const gameLoop = () => {
 const board = new Board();
 generateShape({
   coords: [
-    [1, 4],
-    [1, 5],
-    [1, 6],
-    [1, 7],
+    [0, 4],
+    [0, 5],
+    [0, 6],
+    [0, 7],
   ],
 });
 setInterval(() => {
