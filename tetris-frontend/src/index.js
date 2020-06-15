@@ -1,6 +1,7 @@
 /* eslint-disable prefer-destructuring */
 const canvas = document.getElementById('grid');
 const ctx = canvas.getContext('2d');
+let activeShape = null;
 const gridSize = 50;
 
 const grid = [];
@@ -18,20 +19,7 @@ const emptyLine = [
   false,
   false,
 ];
-class Shape {
-  //   constructor(x = gridSize * 4, y = 0, shape) {
-  //     this.x = x;
-  //     this.y = y;
-  //     this.shape = shape;
-  //     ctx.fillStyle = 'green';
-  //     if (shape === 'line') {
-  //       ctx.fillRect(this.x, this.y, gridSize, gridSize);
-  //       ctx.fillRect(this.x + gridSize * 1, this.y, gridSize, gridSize);
-  //       ctx.fillRect(this.x + gridSize * 2, this.y, gridSize, gridSize);
-  //       ctx.fillRect(this.x + gridSize * 3, this.y, gridSize, gridSize);
-  //     }
-  //   }
-}
+class Shape {}
 class Board {
   constructor() {
     for (let x = 0; x <= canvas.height; x += 50) {
@@ -52,10 +40,15 @@ class Board {
     }
   }
 }
-const testShape = [
-  ['X', 'X', 'X', 'X', true, true, true, true, 'X', 'X', 'X', 'X'],
-  ['X', 'X', 'X', 'X', 'X', 'X', 'X', 'X', 'X', 'X', 'X', 'X'],
-];
+const testShape = {
+  coords: [
+    [1, 4],
+    [1, 5],
+    [1, 6],
+    [1, 7],
+  ],
+};
+
 function drawBoard() {
   for (let x = 0; x <= canvas.height; x += 50) {
     ctx.moveTo(0, x);
@@ -71,16 +64,25 @@ function drawBoard() {
   ctx.strokeStyle = 'black';
   ctx.stroke();
 }
-console.log(grid);
 
 const generateShape = shape => {
-  grid[0] = shape[0];
-  grid[1] = shape[1];
-  //   const newShape = new Shape(gridSize * 4, 0, 'line');
+  activeShape = shape;
+  shape.coords.forEach(coord => {
+    grid[coord[0]][coord[1]] = true;
+  });
+};
+const getNewShape = () => {
+  generateShape({
+    coords: [
+      [1, 4],
+      [1, 5],
+      [1, 6],
+      [1, 7],
+    ],
+  });
 };
 const renderShapes = () => {
   ctx.fillStyle = 'green';
-
   for (let i = 0; i < grid.length; i += 1) {
     for (let x = 0; x < grid[i].length; x += 1) {
       if (grid[i][x] === true) {
@@ -89,22 +91,48 @@ const renderShapes = () => {
     }
   }
 };
-
-const shapeFall = i => {
-  if (i + 1 < canvas.height / 50) {
-    grid[i + 1] = grid[i];
-    grid[i] = emptyLine;
+const fall = shape => {
+  shape.coords.forEach(coord => {
+    grid[coord[0]][coord[1]] = false;
+    coord[0] += 1;
+  });
+};
+const checkBlockBelow = (y, x) => {
+  if (y * gridSize < canvas.height - 50 && grid[y + 1][x] === false)
+    return true;
+  return false;
+};
+const shapeFall = () => {
+  let ableToFall = true;
+  activeShape.coords.forEach(coord => {
+    if (!checkBlockBelow(coord[0], coord[1])) {
+      ableToFall = false;
+    }
+  });
+  if (ableToFall) {
+    fall(activeShape);
+  } else {
+    getNewShape();
   }
 };
 
 const gameLoop = () => {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
   ctx.beginPath();
+  generateShape(activeShape);
   renderShapes();
+  shapeFall();
   drawBoard();
 };
-generateShape(testShape);
 const board = new Board();
+generateShape({
+  coords: [
+    [1, 4],
+    [1, 5],
+    [1, 6],
+    [1, 7],
+  ],
+});
 setInterval(() => {
   gameLoop();
-}, 500);
+}, 700);
