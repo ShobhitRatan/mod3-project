@@ -15,11 +15,9 @@ document.addEventListener('keydown', e => {
     //   break;
     case 'ArrowRight':
       moveShape(0, 1);
-      console.log('right');
       break;
     case 'ArrowLeft':
       moveShape(0, -1);
-      console.log('left');
       break;
     case ' ':
       isPaused = !isPaused;
@@ -102,13 +100,18 @@ const renderShapes = () => {
   }
 };
 const moveShape = (y, x) => {
-  console.log(activeShape);
+  let canStraif = true;
   activeShape.coords.forEach(coord => {
-    if (coord[1] + x >= 0 && coord[1] + x < canvas.width) {
-      coord[0] += y;
-      coord[1] += x;
+    if (!(coord[1] + x >= 0 && (coord[1] + x) * 50 <= canvas.width - 50)) {
+      canStraif = false;
     }
   });
+  if (canStraif) {
+    activeShape.coords.forEach(coord => {
+      coord[0] += y;
+      coord[1] += x;
+    });
+  }
 };
 const fall = shape => {
   shape.coords.forEach(coord => {
@@ -135,13 +138,16 @@ const shapeFall = () => {
     getNewShape();
   }
 };
-
+const checkForFullLine = () => {
+  // loop through grid and check if we have any lines that are all true
+};
 const gameLoop = () => {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
   ctx.beginPath();
   generateShape(activeShape);
   renderShapes();
   shapeFall();
+  checkForFullLine();
   drawBoard();
 };
 const board = new Board();
