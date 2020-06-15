@@ -2,6 +2,7 @@
 const canvas = document.getElementById('grid');
 const ctx = canvas.getContext('2d');
 let activeShape = null;
+let isPaused = false;
 const gridSize = 50;
 document.addEventListener('keydown', e => {
   switch (e.key) {
@@ -19,6 +20,9 @@ document.addEventListener('keydown', e => {
     case 'ArrowLeft':
       moveShape(0, -1);
       console.log('left');
+      break;
+    case ' ':
+      isPaused = !isPaused;
       break;
     default:
       break;
@@ -150,5 +154,7 @@ generateShape({
   ],
 });
 setInterval(() => {
-  gameLoop();
+  if (!isPaused) {
+    gameLoop();
+  }
 }, 700);
