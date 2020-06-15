@@ -19,7 +19,24 @@ const emptyLine = [
   false,
   false,
 ];
+<<<<<<< HEAD
 class Shape {}
+=======
+class Shape {
+    constructor(x = gridSize * 4, y = 0, shape) {
+       this.x = x;
+       this.y = y;
+       this.shape = shape;
+       ctx.fillStyle = 'green';
+       if (shape === 'line') {
+         ctx.fillRect(this.x, this.y, gridSize, gridSize);
+         ctx.fillRect(this.x + gridSize * 1, this.y, gridSize, gridSize);
+         ctx.fillRect(this.x + gridSize * 2, this.y, gridSize, gridSize);
+         ctx.fillRect(this.x + gridSize * 3, this.y, gridSize, gridSize);
+       }
+     }
+}
+>>>>>>> b462170507bd3cf7cc05acb510e0d7bd31da396d
 class Board {
   constructor() {
     for (let x = 0; x <= canvas.height; x += 50) {
