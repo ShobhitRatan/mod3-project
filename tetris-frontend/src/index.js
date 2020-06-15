@@ -163,4 +163,4 @@ setInterval(() => {
   if (!isPaused) {
     gameLoop();
   }
-}, 700);
+}, 200);
