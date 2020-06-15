@@ -19,18 +19,18 @@ const emptyLine = [
   false,
 ];
 class Shape {
-  //   constructor(x = gridSize * 4, y = 0, shape) {
-  //     this.x = x;
-  //     this.y = y;
-  //     this.shape = shape;
-  //     ctx.fillStyle = 'green';
-  //     if (shape === 'line') {
-  //       ctx.fillRect(this.x, this.y, gridSize, gridSize);
-  //       ctx.fillRect(this.x + gridSize * 1, this.y, gridSize, gridSize);
-  //       ctx.fillRect(this.x + gridSize * 2, this.y, gridSize, gridSize);
-  //       ctx.fillRect(this.x + gridSize * 3, this.y, gridSize, gridSize);
-  //     }
-  //   }
+    constructor(x = gridSize * 4, y = 0, shape) {
+       this.x = x;
+       this.y = y;
+       this.shape = shape;
+       ctx.fillStyle = 'green';
+       if (shape === 'line') {
+         ctx.fillRect(this.x, this.y, gridSize, gridSize);
+         ctx.fillRect(this.x + gridSize * 1, this.y, gridSize, gridSize);
+         ctx.fillRect(this.x + gridSize * 2, this.y, gridSize, gridSize);
+         ctx.fillRect(this.x + gridSize * 3, this.y, gridSize, gridSize);
+       }
+     }
 }
 class Board {
   constructor() {
