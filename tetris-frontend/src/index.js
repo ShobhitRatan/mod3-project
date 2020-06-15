@@ -112,6 +112,7 @@ const fall = shape => {
     coord[0] += 1;
   });
 };
+
 const checkBlockBelow = (y, x) => {
   if (y * gridSize < canvas.height - 50 && grid[y + 1][x] === false)
     return true;
@@ -135,7 +136,6 @@ const gameLoop = () => {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
   ctx.beginPath();
   generateShape(activeShape);
-  console.log(grid);
   renderShapes();
   shapeFall();
   drawBoard();
