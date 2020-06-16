@@ -4,6 +4,9 @@ const ctx = canvas.getContext('2d');
 let activeShape = null;
 let isPaused = false;
 const gridSize = 50;
+const scoreElement = document.querySelector("#score") 
+
+console.log(score) 
 document.addEventListener('keydown', e => {
   switch (e.key) {
     // case 'ArrowDown':
@@ -61,7 +64,7 @@ const testShape = {
 function drawBoard() {
   for (let x = 0; x <= canvas.height; x += 50) {
     ctx.moveTo(0, x);
-    ctx.lineTo(canvas.width, x);
+    ctx.lineTo(canvas.width, x); 
   }
   for (let i = 0; i <= canvas.width; i += 50) {
     ctx.moveTo(i, 0);
@@ -152,7 +155,10 @@ const shapeFall = () => {
 };
 const checkForFullLine = () => {
   // loop through grid and check if we have any lines that are all true
+ 
   console.log(grid);
+  let score = 0 
+  
   for (let i = 0; i < grid.length; i += 1) {
     let isRowFull = true;
     for (let x = 0; x < grid[i].length; x += 1) {
@@ -163,10 +169,13 @@ const checkForFullLine = () => {
     if (isRowFull) {
       for (let y = i; y > 1; y -= 1) {
         for (let x = 0; x < grid[i].length; x += 1) {
-          grid[y][x] = grid[y - 1][x];
+          grid[y][x] = grid[y - 1][x];  
         }
       }
-    }
+      score += 20; 
+      scoreElement.innerHTML = `Score: ${score}` 
+      console.log(score)
+    } 
   }
 };
 const gameLoop = () => {
