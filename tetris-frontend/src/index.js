@@ -20,6 +20,7 @@ document.addEventListener('keydown', e => {
       moveShape(0, -1);
       break;
     case ' ':
+      e.preventDefault();
       isPaused = !isPaused;
       break;
     default:
@@ -74,20 +75,19 @@ function drawBoard() {
 }
 
 const generateShape = shape => {
-  activeShape = shape;
-  shape.coords.forEach(coord => {
+  shape.forEach(coord => {
     grid[coord[0]][coord[1]] = true;
   });
 };
 const getNewShape = () => {
-  generateShape({
-    coords: [
-      [0, 4],
-      [0, 5],
-      [0, 6],
-      [0, 7],
-    ],
-  });
+  fetch('http://localhost:3000/api')
+    .then(resp => resp.json())
+    .then(data => {
+      // console.log(data);
+      const coords = JSON.parse(`[${data.coordinates}]`);
+      activeShape = coords;
+      generateShape(activeShape);
+    });
 };
 const renderShapes = () => {
   ctx.fillStyle = 'green';
@@ -101,33 +101,45 @@ const renderShapes = () => {
 };
 const moveShape = (y, x) => {
   let canStraif = true;
-  activeShape.coords.forEach(coord => {
+  activeShape.forEach(coord => {
     if (!(coord[1] + x >= 0 && (coord[1] + x) * 50 <= canvas.width - 50)) {
       canStraif = false;
     }
   });
   if (canStraif) {
-    activeShape.coords.forEach(coord => {
+    activeShape.forEach(coord => {
       coord[0] += y;
       coord[1] += x;
     });
   }
 };
 const fall = shape => {
-  shape.coords.forEach(coord => {
+  shape.forEach(coord => {
     grid[coord[0]][coord[1]] = false;
     coord[0] += 1;
   });
 };
 
 const checkBlockBelow = (y, x) => {
-  if (y * gridSize < canvas.height - 50 && grid[y + 1][x] === false)
+  let pieceBelow = false;
+  activeShape.forEach(coord => {
+    if (coord[0] === y + 1 && coord[1] === x) {
+      pieceBelow = true;
+    }
+  });
+  if (
+    (y * gridSize < canvas.height - 50 && grid[y + 1][x] === false) ||
+    pieceBelow === true
+  ) {
+    // !activeShape.includes(`[${y + 1}, ${x}]`)
     return true;
+  }
+
   return false;
 };
 const shapeFall = () => {
   let ableToFall = true;
-  activeShape.coords.forEach(coord => {
+  activeShape.forEach(coord => {
     if (!checkBlockBelow(coord[0], coord[1])) {
       ableToFall = false;
     }
@@ -138,9 +150,7 @@ const shapeFall = () => {
     getNewShape();
   }
 };
-const checkForFullLine = () => {
-  // loop through grid and check if we have any lines that are all true
-};
+const checkForFullLine = () => {};
 const gameLoop = () => {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
   ctx.beginPath();
@@ -151,14 +161,7 @@ const gameLoop = () => {
   drawBoard();
 };
 const board = new Board();
-generateShape({
-  coords: [
-    [0, 4],
-    [0, 5],
-    [0, 6],
-    [0, 7],
-  ],
-});
+getNewShape();
 setInterval(() => {
   if (!isPaused) {
     gameLoop();
