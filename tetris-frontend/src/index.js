@@ -19,6 +19,9 @@ document.addEventListener('keydown', e => {
     case 'ArrowLeft':
       moveShape(0, -1);
       break;
+    case 'ArrowUp':
+      rotateShape(activeShape);
+      break;
     case ' ':
       e.preventDefault();
       isPaused = !isPaused;
@@ -73,7 +76,26 @@ function drawBoard() {
   ctx.strokeStyle = 'black';
   ctx.stroke();
 }
+// const rotateXCoord = (px, py, ox, oy) =>
+//   Math.cos(90) * (px - ox) - Math.sin(90) * (-py - -oy) + ox;
+// const rotateYCoord = (px, py, ox, oy) =>
+//   Math.sin(90) * (px - ox) + Math.cos(90) * (-py - -oy) + -oy;
+// const rotateShape = shape => {
+//   shape.forEach(coord => {
+//     const newX = Math.abs(
+//       rotateYCoord(coord[1], coord[0], shape[0][1], shape[0][0])
+//     );
+//     const newY = Math.abs(
+//       rotateXCoord(coord[1], coord[0], shape[0][1], shape[0][0])
+//     );
+//     console.log();
 
+//     console.log(coord[1], coord[0]);
+//     console.log(newX, newY);
+//     coord[0] = newY;
+//     coord[1] = newX;
+//   });
+// };
 const generateShape = shape => {
   shape.forEach(coord => {
     grid[coord[0]][coord[1]] = true;
@@ -152,7 +174,6 @@ const shapeFall = () => {
 };
 const checkForFullLine = () => {
   // loop through grid and check if we have any lines that are all true
-  console.log(grid);
   for (let i = 0; i < grid.length; i += 1) {
     let isRowFull = true;
     for (let x = 0; x < grid[i].length; x += 1) {
