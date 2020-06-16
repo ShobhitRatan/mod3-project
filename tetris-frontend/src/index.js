@@ -147,23 +147,23 @@ const shapeFall = () => {
   if (ableToFall) {
     fall(activeShape);
   } else {
-    getNewShape();
+    setTimeout(getNewShape(), 200);
   }
 };
 const checkForFullLine = () => {
   // loop through grid and check if we have any lines that are all true
-
+  console.log(grid);
   for (let i = 0; i < grid.length; i += 1) {
     let isRowFull = true;
     for (let x = 0; x < grid[i].length; x += 1) {
       if (grid[i][x] !== true) {
         isRowFull = false;
       }
-      if (isRowFull) {
-        for (let y = i; y > 1; y -= 1) {
-          for (x = 0; x < grid[i].length; x += 1) {
-            grid[y][x] = grid[y - 1][x];
-          }
+    }
+    if (isRowFull) {
+      for (let y = i; y > 1; y -= 1) {
+        for (let x = 0; x < grid[i].length; x += 1) {
+          grid[y][x] = grid[y - 1][x];
         }
       }
     }
