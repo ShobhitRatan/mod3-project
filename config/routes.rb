@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  get '/', :to=> redirect('/index.html')
   get '/api', to: 'api#getRandom'
   resources :pieces
   resources :scores
