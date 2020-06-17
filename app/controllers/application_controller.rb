@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::API
-    def home
+    def homeRoute
         render 'index.html'
     end
 end

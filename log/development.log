@@ -20841,3 +20841,190 @@ Processing by ApiController#getRandom as */*
 Completed 200 OK in 2ms (Views: 0.4ms | ActiveRecord: 0.3ms | Allocations: 812)
 
 
+Started GET "/api" for 127.0.0.1 at 2020-06-17 16:25:12 -0400
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ApiController#getRandom as */*
+  [1m[36mPiece Load (6.3ms)[0m  [1m[34mSELECT "pieces".* FROM "pieces"[0m
+  ↳ app/controllers/api_controller.rb:4:in `getRandom'
+Completed 200 OK in 22ms (Views: 0.6ms | ActiveRecord: 11.8ms | Allocations: 4257)
+
+
+Started GET "/api" for 127.0.0.1 at 2020-06-17 16:25:13 -0400
+Processing by ApiController#getRandom as */*
+  [1m[36mPiece Load (1.2ms)[0m  [1m[34mSELECT "pieces".* FROM "pieces"[0m
+  ↳ app/controllers/api_controller.rb:4:in `getRandom'
+Completed 200 OK in 5ms (Views: 0.5ms | ActiveRecord: 1.2ms | Allocations: 830)
+
+
+Started GET "/api" for 127.0.0.1 at 2020-06-17 16:25:14 -0400
+Processing by ApiController#getRandom as */*
+  [1m[36mPiece Load (0.5ms)[0m  [1m[34mSELECT "pieces".* FROM "pieces"[0m
+  ↳ app/controllers/api_controller.rb:4:in `getRandom'
+Completed 200 OK in 2ms (Views: 0.3ms | ActiveRecord: 0.5ms | Allocations: 830)
+
+
+Started GET "/api" for 127.0.0.1 at 2020-06-17 16:25:15 -0400
+Processing by ApiController#getRandom as */*
+  [1m[36mPiece Load (0.4ms)[0m  [1m[34mSELECT "pieces".* FROM "pieces"[0m
+  ↳ app/controllers/api_controller.rb:4:in `getRandom'
+Completed 200 OK in 2ms (Views: 0.3ms | ActiveRecord: 0.4ms | Allocations: 830)
+
+
+Started GET "/api" for 127.0.0.1 at 2020-06-17 16:25:16 -0400
+Processing by ApiController#getRandom as */*
+  [1m[36mPiece Load (0.3ms)[0m  [1m[34mSELECT "pieces".* FROM "pieces"[0m
+  ↳ app/controllers/api_controller.rb:4:in `getRandom'
+Completed 200 OK in 2ms (Views: 0.3ms | ActiveRecord: 0.3ms | Allocations: 830)
+
+
+Started GET "/api" for 127.0.0.1 at 2020-06-17 16:25:17 -0400
+Processing by ApiController#getRandom as */*
+  [1m[36mPiece Load (0.4ms)[0m  [1m[34mSELECT "pieces".* FROM "pieces"[0m
+  ↳ app/controllers/api_controller.rb:4:in `getRandom'
+Completed 200 OK in 2ms (Views: 0.3ms | ActiveRecord: 0.4ms | Allocations: 812)
+
+
+Started GET "/api" for 127.0.0.1 at 2020-06-17 16:25:18 -0400
+Processing by ApiController#getRandom as */*
+  [1m[36mPiece Load (0.3ms)[0m  [1m[34mSELECT "pieces".* FROM "pieces"[0m
+  ↳ app/controllers/api_controller.rb:4:in `getRandom'
+Completed 200 OK in 2ms (Views: 0.3ms | ActiveRecord: 0.3ms | Allocations: 812)
+
+
+Started GET "/api" for 127.0.0.1 at 2020-06-17 16:25:19 -0400
+Processing by ApiController#getRandom as */*
+  [1m[36mPiece Load (0.3ms)[0m  [1m[34mSELECT "pieces".* FROM "pieces"[0m
+  ↳ app/controllers/api_controller.rb:4:in `getRandom'
+Completed 200 OK in 2ms (Views: 0.3ms | ActiveRecord: 0.3ms | Allocations: 812)
+
+
+Started GET "/api" for 127.0.0.1 at 2020-06-17 16:25:20 -0400
+Processing by ApiController#getRandom as */*
+  [1m[36mPiece Load (0.3ms)[0m  [1m[34mSELECT "pieces".* FROM "pieces"[0m
+  ↳ app/controllers/api_controller.rb:4:in `getRandom'
+Completed 200 OK in 2ms (Views: 0.4ms | ActiveRecord: 0.3ms | Allocations: 812)
+
+
+Started GET "/api" for 127.0.0.1 at 2020-06-17 16:25:21 -0400
+Processing by ApiController#getRandom as */*
+  [1m[36mPiece Load (0.3ms)[0m  [1m[34mSELECT "pieces".* FROM "pieces"[0m
+  ↳ app/controllers/api_controller.rb:4:in `getRandom'
+Completed 200 OK in 2ms (Views: 0.3ms | ActiveRecord: 0.3ms | Allocations: 812)
+
+
+Started GET "/api" for 127.0.0.1 at 2020-06-17 16:25:22 -0400
+Processing by ApiController#getRandom as */*
+  [1m[36mPiece Load (0.3ms)[0m  [1m[34mSELECT "pieces".* FROM "pieces"[0m
+  ↳ app/controllers/api_controller.rb:4:in `getRandom'
+Completed 200 OK in 2ms (Views: 0.3ms | ActiveRecord: 0.3ms | Allocations: 812)
+
+
+Started GET "/api" for 127.0.0.1 at 2020-06-17 16:25:23 -0400
+Processing by ApiController#getRandom as */*
+  [1m[36mPiece Load (0.3ms)[0m  [1m[34mSELECT "pieces".* FROM "pieces"[0m
+  ↳ app/controllers/api_controller.rb:4:in `getRandom'
+Completed 200 OK in 2ms (Views: 0.3ms | ActiveRecord: 0.3ms | Allocations: 812)
+
+
+Started GET "/api" for 127.0.0.1 at 2020-06-17 16:25:24 -0400
+Processing by ApiController#getRandom as */*
+  [1m[36mPiece Load (0.3ms)[0m  [1m[34mSELECT "pieces".* FROM "pieces"[0m
+  ↳ app/controllers/api_controller.rb:4:in `getRandom'
+Completed 200 OK in 2ms (Views: 0.3ms | ActiveRecord: 0.3ms | Allocations: 812)
+
+
+Started GET "/api" for 127.0.0.1 at 2020-06-17 16:25:25 -0400
+Processing by ApiController#getRandom as */*
+  [1m[36mPiece Load (2.2ms)[0m  [1m[34mSELECT "pieces".* FROM "pieces"[0m
+  ↳ app/controllers/api_controller.rb:4:in `getRandom'
+Completed 200 OK in 6ms (Views: 0.3ms | ActiveRecord: 2.2ms | Allocations: 812)
+
+
+Started GET "/api" for 127.0.0.1 at 2020-06-17 16:25:26 -0400
+Processing by ApiController#getRandom as */*
+  [1m[36mPiece Load (0.3ms)[0m  [1m[34mSELECT "pieces".* FROM "pieces"[0m
+  ↳ app/controllers/api_controller.rb:4:in `getRandom'
+Completed 200 OK in 2ms (Views: 0.3ms | ActiveRecord: 0.3ms | Allocations: 812)
+
+
+Started GET "/api" for 127.0.0.1 at 2020-06-17 16:25:27 -0400
+Processing by ApiController#getRandom as */*
+  [1m[36mPiece Load (0.3ms)[0m  [1m[34mSELECT "pieces".* FROM "pieces"[0m
+  ↳ app/controllers/api_controller.rb:4:in `getRandom'
+Completed 200 OK in 2ms (Views: 0.3ms | ActiveRecord: 0.3ms | Allocations: 812)
+
+
+Started GET "/api" for 127.0.0.1 at 2020-06-17 16:25:27 -0400
+Processing by ApiController#getRandom as */*
+  [1m[36mPiece Load (0.3ms)[0m  [1m[34mSELECT "pieces".* FROM "pieces"[0m
+  ↳ app/controllers/api_controller.rb:4:in `getRandom'
+Completed 200 OK in 2ms (Views: 0.4ms | ActiveRecord: 0.3ms | Allocations: 812)
+
+
+Started GET "/api" for 127.0.0.1 at 2020-06-17 16:25:27 -0400
+Processing by ApiController#getRandom as */*
+  [1m[36mPiece Load (0.3ms)[0m  [1m[34mSELECT "pieces".* FROM "pieces"[0m
+  ↳ app/controllers/api_controller.rb:4:in `getRandom'
+Completed 200 OK in 2ms (Views: 0.3ms | ActiveRecord: 0.3ms | Allocations: 812)
+
+
+Started GET "/api" for 127.0.0.1 at 2020-06-17 16:25:27 -0400
+Processing by ApiController#getRandom as */*
+  [1m[36mPiece Load (0.5ms)[0m  [1m[34mSELECT "pieces".* FROM "pieces"[0m
+  ↳ app/controllers/api_controller.rb:4:in `getRandom'
+Completed 200 OK in 3ms (Views: 0.3ms | ActiveRecord: 0.5ms | Allocations: 812)
+
+
+Started GET "/api" for 127.0.0.1 at 2020-06-17 16:25:28 -0400
+Processing by ApiController#getRandom as */*
+  [1m[36mPiece Load (0.3ms)[0m  [1m[34mSELECT "pieces".* FROM "pieces"[0m
+  ↳ app/controllers/api_controller.rb:4:in `getRandom'
+Completed 200 OK in 3ms (Views: 0.6ms | ActiveRecord: 0.3ms | Allocations: 812)
+
+
+Started GET "/api" for 127.0.0.1 at 2020-06-17 16:25:28 -0400
+Processing by ApiController#getRandom as */*
+  [1m[36mPiece Load (0.3ms)[0m  [1m[34mSELECT "pieces".* FROM "pieces"[0m
+  ↳ app/controllers/api_controller.rb:4:in `getRandom'
+Completed 200 OK in 3ms (Views: 0.4ms | ActiveRecord: 0.3ms | Allocations: 812)
+
+
+Started GET "/api" for 127.0.0.1 at 2020-06-17 16:25:28 -0400
+Processing by ApiController#getRandom as */*
+  [1m[36mPiece Load (0.4ms)[0m  [1m[34mSELECT "pieces".* FROM "pieces"[0m
+  ↳ app/controllers/api_controller.rb:4:in `getRandom'
+Completed 200 OK in 2ms (Views: 0.3ms | ActiveRecord: 0.4ms | Allocations: 812)
+
+
+Started GET "/api" for 127.0.0.1 at 2020-06-17 16:25:28 -0400
+Processing by ApiController#getRandom as */*
+  [1m[36mPiece Load (0.3ms)[0m  [1m[34mSELECT "pieces".* FROM "pieces"[0m
+  ↳ app/controllers/api_controller.rb:4:in `getRandom'
+Completed 200 OK in 2ms (Views: 0.3ms | ActiveRecord: 0.3ms | Allocations: 812)
+
+
+Started GET "/api" for 127.0.0.1 at 2020-06-17 16:25:28 -0400
+Processing by ApiController#getRandom as */*
+  [1m[36mPiece Load (0.4ms)[0m  [1m[34mSELECT "pieces".* FROM "pieces"[0m
+  ↳ app/controllers/api_controller.rb:4:in `getRandom'
+Completed 200 OK in 3ms (Views: 0.3ms | ActiveRecord: 0.4ms | Allocations: 812)
+
+
+Started GET "/api" for 127.0.0.1 at 2020-06-17 16:25:29 -0400
+Processing by ApiController#getRandom as */*
+  [1m[36mPiece Load (7.7ms)[0m  [1m[34mSELECT "pieces".* FROM "pieces"[0m
+  ↳ app/controllers/api_controller.rb:4:in `getRandom'
+Completed 200 OK in 10ms (Views: 0.7ms | ActiveRecord: 7.7ms | Allocations: 812)
+
+
+Started GET "/" for 127.0.0.1 at 2020-06-17 16:38:52 -0400
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ApplicationController#home as HTML
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 114)
+
+
+Started GET "/" for 127.0.0.1 at 2020-06-17 16:38:56 -0400
+Processing by ApplicationController#home as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 52)
+
+

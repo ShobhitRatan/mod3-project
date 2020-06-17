@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root :to=> 'application#home'
+  root :to=> 'application#homeRoute'
   get '/api', to: 'api#getRandom'
   resources :pieces
   resources :scores
