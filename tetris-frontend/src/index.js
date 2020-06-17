@@ -4,6 +4,9 @@ const ctx = canvas.getContext('2d');
 let activeShape = null;
 let isPaused = false;
 const gridSize = 50;
+const scoreElement = document.querySelector('#score');
+
+console.log(score);
 document.addEventListener('keydown', e => {
   switch (e.key) {
     // case 'ArrowDown':
@@ -76,26 +79,29 @@ function drawBoard() {
   ctx.strokeStyle = 'black';
   ctx.stroke();
 }
-// const rotateXCoord = (px, py, ox, oy) =>
-//   Math.cos(90) * (px - ox) - Math.sin(90) * (-py - -oy) + ox;
-// const rotateYCoord = (px, py, ox, oy) =>
-//   Math.sin(90) * (px - ox) + Math.cos(90) * (-py - -oy) + -oy;
-// const rotateShape = shape => {
-//   shape.forEach(coord => {
-//     const newX = Math.abs(
-//       rotateYCoord(coord[1], coord[0], shape[0][1], shape[0][0])
-//     );
-//     const newY = Math.abs(
-//       rotateXCoord(coord[1], coord[0], shape[0][1], shape[0][0])
-//     );
-//     console.log();
-
-//     console.log(coord[1], coord[0]);
-//     console.log(newX, newY);
-//     coord[0] = newY;
-//     coord[1] = newX;
-//   });
-// };
+const rotateXCoord = (px, py, ox, oy) =>
+  Math.round(Math.cos(-90)) * (px - ox) -
+  Math.round(Math.sin(-90)) * (-py - -oy) +
+  ox;
+const rotateYCoord = (px, py, ox, oy) =>
+  Math.round(Math.sin(-90)) * (px - ox) +
+  Math.round(Math.cos(-90)) * (-py - -oy) +
+  -oy;
+const rotateShape = shape => {
+  const newShape = [];
+  for (let i = 0; i < shape.length; i += 1) {
+    const newY = Math.abs(
+      rotateYCoord(shape[i][1], shape[i][0], shape[0][1], shape[0][0])
+    );
+    const newX = Math.abs(
+      rotateXCoord(shape[i][1], shape[i][0], shape[0][1], shape[0][0])
+    );
+    newShape.push([newY, newX]);
+  }
+  for (let i = 0; i < shape.length; i += 1) {
+    shape[i] = newShape[i];
+  }
+};
 const generateShape = shape => {
   shape.forEach(coord => {
     grid[coord[0]][coord[1]] = true;
@@ -174,6 +180,10 @@ const shapeFall = () => {
 };
 const checkForFullLine = () => {
   // loop through grid and check if we have any lines that are all true
+
+  console.log(grid);
+  let score = 0;
+
   for (let i = 0; i < grid.length; i += 1) {
     let isRowFull = true;
     for (let x = 0; x < grid[i].length; x += 1) {
@@ -187,6 +197,9 @@ const checkForFullLine = () => {
           grid[y][x] = grid[y - 1][x];
         }
       }
+      score += 20;
+      scoreElement.innerHTML = `Score: ${score}`;
+      console.log(score);
     }
   }
 };
