@@ -1,12 +1,12 @@
-# Flatflix
+# Flatiron Tetris
 
-A netflix clone, built with React frontend and Rails backend, which allows users to sign in and watch trailers of their favorite movies.
+Flatiron Tetris is a JavaScript based Tetris game.
 
 _Made by [Shobhit Ratan](https://github.com/ShobhitRatan) and [Kyle Tomanelli](https://github.com/ktomanelli) for their Flatiron School Mod 3 project._
 
 ## How It Works
 
-Flatiron Tetris is a JavaScript based Tetris game. A user can use the arrow keys to move a falling piece any up, down, left, or right. And space bar to rotate a piece to better fit the Tetris landscape.
+A user can use the arrow keys to move a falling piece any up, down, left, or right. And space bar to rotate a piece to better fit the Tetris landscape.
 
 ## Built Using?
 
