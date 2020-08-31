@@ -1,24 +1,22 @@
-# README
+# Flatflix
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+A netflix clone, built with React frontend and Rails backend, which allows users to sign in and watch trailers of their favorite movies.
 
-Things you may want to cover:
+_Made by [Shobhit Ratan](https://github.com/ShobhitRatan) and [Kyle Tomanelli](https://github.com/ktomanelli) for their Flatiron School Mod 3 project._
 
-* Ruby version
+## How It Works
 
-* System dependencies
+Flatiron Tetris is a JavaScript based Tetris game. A user can use the arrow keys to move a falling piece any up, down, left, or right. And space bar to rotate a piece to better fit the Tetris landscape.
 
-* Configuration
+## Built Using?
 
-* Database creation
+Flatiron Tetris was built using Rails on the backend which handles storing and randomly selecting the default coordinates for available pieces, and Vanilla JavaScript on the frontend which handles displaying the backend-provided coordinates on the 2-dimensional array Tetris grid.
 
-* Database initialization
+## Software Requirements
 
-* How to run the test suite
+- Ruby on Rails
 
-* Services (job queues, cache servers, search engines, etc.)
+## How to Run (frontend)
 
-* Deployment instructions
-
-* ...
+- Clone this repo as well as the [frontend repo](https://github.com/ktomanelli/flatiron-tetris), navigate to the project root in your terminal.
+- Run `rails s`
